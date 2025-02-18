@@ -44,12 +44,6 @@ timeline_cache.json
 
 *.sqlite
 
-# Character configurations
-characters/**/secrets.json
-characters/**/*.env
-characters/**/*.key
-characters/**/private/
-
 packages/core/src/providers/cache
 packages/core/src/providers/cache/*
 cache/*

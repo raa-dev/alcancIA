@@ -1,1 +1,1 @@
-export type SupportedChain = "mainnet" | "sepolia" | "hardhat" 
+export type SupportedChain = "mainnet" | "sepolia" | "hardhat" | "arbitrumSepolia" 

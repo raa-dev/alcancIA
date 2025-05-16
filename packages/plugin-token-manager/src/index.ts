@@ -1,6 +1,8 @@
 import type { Plugin } from "@elizaos/core";
 import { testAction } from "./actions/testAction";
 import { getAddressAction } from "./actions/getAddressAction";
+import { launchTokenAction } from "./actions/launchTokenAction";
+import { getBalanceAction } from "./actions/getBalanceAction";
 import { walletProvider } from "./providers/wallet";
 
 // Exportar módulos
@@ -14,7 +16,9 @@ export const tokenManagerPlugin: Plugin = {
     description: "Plugin para gestión de tokens ERC20, ERC721 y ERC1155",
     // Solo registrar las acciones específicas de token/wallet
     actions: [
-        getAddressAction
+        getAddressAction,
+        launchTokenAction,
+        getBalanceAction
     ],
     // No registrar evaluadores por ahora
     evaluators: [],
@@ -27,5 +31,7 @@ export const tokenManagerPlugin: Plugin = {
 // Exportar componentes individualmente para uso específico
 export * from "./providers/wallet";
 export * from "./actions/getAddressAction";
+export * from "./actions/launchTokenAction";
+export * from "./actions/getBalanceAction";
 
 export default tokenManagerPlugin 

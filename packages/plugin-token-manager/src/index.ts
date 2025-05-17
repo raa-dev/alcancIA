@@ -3,6 +3,8 @@ import { testAction } from "./actions/testAction";
 import { getAddressAction } from "./actions/getAddressAction";
 import { launchTokenAction } from "./actions/launchTokenAction";
 import { getBalanceAction } from "./actions/getBalanceAction";
+import { distributeTokensAction } from "./actions/distributeTokensAction";
+import { getTokenInfoAction } from "./actions/getTokenInfoAction";
 import { walletProvider } from "./providers/wallet";
 
 // Exportar módulos
@@ -18,7 +20,9 @@ export const tokenManagerPlugin: Plugin = {
     actions: [
         getAddressAction,
         launchTokenAction,
-        getBalanceAction
+        getBalanceAction,
+        distributeTokensAction,
+        getTokenInfoAction
     ],
     // No registrar evaluadores por ahora
     evaluators: [],
@@ -33,5 +37,7 @@ export * from "./providers/wallet";
 export * from "./actions/getAddressAction";
 export * from "./actions/launchTokenAction";
 export * from "./actions/getBalanceAction";
+export * from "./actions/distributeTokensAction";
+export * from "./actions/getTokenInfoAction";
 
 export default tokenManagerPlugin 

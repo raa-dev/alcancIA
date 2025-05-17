@@ -12,7 +12,7 @@ import {
 } from "@elizaos/core"
 
 import { initWalletProvider, type WalletProvider } from "../providers/wallet"
-import { TokenLauncherABI, TokenLauncherBytecode } from "../lib/TokenLauncherABI"
+import { TokenLauncherABI } from "../lib/TokenLauncherABI"
 import { encodeFunctionData, parseAbi, encodeAbiParameters } from "viem"
 import type { SupportedChain } from "../types"
 
@@ -86,8 +86,9 @@ export class LaunchTokenAction {
 
             // Combinar el bytecode con los argumentos del constructor
             // Asegurarnos de que el bytecode no tenga 0x duplicado
-            const bytecode = TokenLauncherBytecode.startsWith('0x') ? TokenLauncherBytecode.slice(2) : TokenLauncherBytecode
-            const deployData = `0x${bytecode}${constructorArgs.slice(2)}` as Hex
+            //const bytecode = TokenLauncherBytecode.startsWith('0x') ? TokenLauncherBytecode.slice(2) : TokenLauncherBytecode
+            //const deployData = `0x${bytecode}${constructorArgs.slice(2)}` as Hex
+            const deployData = `0x${constructorArgs.slice(2)}` as Hex
 
             const hash = await walletClient.sendTransaction({
                 account: walletClient.account,

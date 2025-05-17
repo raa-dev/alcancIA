@@ -36,7 +36,7 @@ import type { SupportedChain } from "../types";
 export class WalletProvider {
     private cache: NodeCache;
     private cacheKey = "evm/wallet";
-    private currentChain: SupportedChain = "mainnet";
+    private currentChain: SupportedChain = "arbitrumSepolia";
     private CACHE_EXPIRY_SEC = 5;
     chains: Record<string, Chain> = { ...viemChains };
     account: PrivateKeyAccount;
@@ -49,7 +49,9 @@ export class WalletProvider {
         this.setAccount(accountOrPrivateKey);
         this.setChains(chains);
 
-        if (chains && Object.keys(chains).length > 0) {
+        if (chains && chains["arbitrumSepolia"]) {
+            this.setCurrentChain("arbitrumSepolia");
+        } else if (chains && Object.keys(chains).length > 0) {
             this.setCurrentChain(Object.keys(chains)[0] as SupportedChain);
         }
 

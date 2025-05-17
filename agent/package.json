@@ -93,6 +93,7 @@
         "@elizaos/plugin-tee-log": "workspace:*",
         "@elizaos/plugin-tee-marlin": "workspace:*",
         "@elizaos/plugin-ton": "workspace:*",
+        "@elizaos/plugin-token-manager": "workspace:*",
         "@elizaos/plugin-twitter": "workspace:*",
         "@elizaos/plugin-primus": "workspace:*",
         "@elizaos/plugin-cronoszkevm": "workspace:*",

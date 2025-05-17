@@ -12,7 +12,7 @@ export * as providers from "./providers/index";
 
 // Definir el plugin
 export const tokenManagerPlugin: Plugin = {
-    name: "token-manager",
+    name: "plugin-token-manager",
     description: "Plugin para gestión de tokens ERC20, ERC721 y ERC1155",
     // Solo registrar las acciones específicas de token/wallet
     actions: [

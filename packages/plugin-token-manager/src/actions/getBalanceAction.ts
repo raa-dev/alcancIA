@@ -55,20 +55,8 @@ export const getBalanceAction: Action = {
             // Inicializar el wallet provider
             const walletProvider = await initWalletProvider(runtime)
             
-            // Obtener los parámetros del mensaje
-            const context = composeContext({
-                state,
-                template: getBalanceTemplate
-            })
-
-            const params = (await generateObjectDeprecated({
-                runtime,
-                context,
-                modelClass: ModelClass.SMALL
-            })) as BalanceParams
-
-            // Obtener el balance
-            const chain = params.chain || "arbitrumSepolia" as SupportedChain
+            // Forzar el uso de Arbitrum Sepolia
+            const chain = "arbitrumSepolia" as SupportedChain
             walletProvider.switchChain(chain)
             const balance = await walletProvider.getWalletBalanceForChain(chain)
             const address = walletProvider.getAddress()

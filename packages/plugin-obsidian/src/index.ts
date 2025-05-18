@@ -13,7 +13,8 @@ import { readFileAction } from "./actions/file";
 import { saveFileAction } from "./actions/saveFile";
 import { openFileAction } from "./actions/openFile";
 import { updateFileAction } from "./actions/updateFile";
-import { addVecinoAction } from "./actions/addVecinoAction"
+import { addVecinoAction } from "./actions/addVecinoAction";
+import { listVecinosAction } from "./actions/listVecinosAction";
 
 export const obsidianPlugin = {
     name: "obsidian",
@@ -32,7 +33,8 @@ export const obsidianPlugin = {
         saveFileAction,
         openFileAction,
         updateFileAction,
-        addVecinoAction
+        addVecinoAction,
+        listVecinosAction
     ],
     evaluators: [],
     services: [],

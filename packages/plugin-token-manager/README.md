@@ -1,15 +1,21 @@
 # Plugin Token Manager
 
-Plugin para ElizaOS que proporciona funcionalidades de gestión de tokens ERC20, ERC721 y ERC1155.
+Plugin para ElizaOS que proporciona funcionalidades de gestión de tokens ERC20 y sistema de votación para condominios.
 
 ## Características
 
-- Transferencia de tokens
-- Minting de tokens
-- Burning de tokens
-- Aprobación de tokens
+### Gestión de Tokens
+- Distribución de tokens de votación
 - Consulta de balances
-- Gestión de metadatos
+- Transferencia de tokens
+- Aprobación de tokens
+
+### Sistema de Votación
+- Distribución de tokens a vecinos
+- Creación de propuestas
+- Votación en propuestas
+- Consulta de resultados
+- Cierre de propuestas
 
 ## Instalación
 
@@ -23,27 +29,45 @@ Agregar el plugin a tu archivo de configuración:
 
 ```json
 {
-  "plugins": ["token-manager"]
+  "plugins": ["plugin-token-manager"],
+  "settings": {
+    "chains": {
+      "evm": ["arbitrumSepolia"]
+    }
+  }
 }
+```
+
+### Variables de Entorno Requeridas
+```env
+ETHEREUM_PROVIDER_ARBITRUMSEPOLIA=https://arb-sepolia.g.alchemy.com/v2/tu-api-key
+EVM_PRIVATE_KEY=tu-clave-privada
 ```
 
 ## Uso
 
-El plugin proporciona las siguientes funcionalidades:
+### Acciones de Tokens
+- `distributeTokens`: Distribuir tokens de votación a vecinos
+- `getTokenInfo`: Consultar información del token (balance, total supply, etc.)
 
-### Acciones
-- `transferToken`: Transferir tokens a otra dirección
-- `mintToken`: Crear nuevos tokens
-- `burnToken`: Quemar tokens existentes
-- `approveToken`: Aprobar tokens para ser gastados por otra dirección
+### Acciones de Votación (Próximamente)
+- `createProposal`: Crear una nueva propuesta para votación
+- `vote`: Emitir un voto en una propuesta
+- `getProposal`: Consultar el estado de una propuesta
+- `closeProposal`: Cerrar una propuesta activa
 
-### Evaluadores
-- `tokenBalance`: Evaluar el balance de tokens
-- `tokenApproval`: Evaluar las aprobaciones de tokens
+### Ejemplos de Uso
 
-### Providers
-- `tokenInfo`: Obtener información básica del token
-- `tokenMetadata`: Obtener metadatos del token
+#### Distribuir Tokens
+```
+Donna, distribuye tokens de votación a estos vecinos:
+Casa 12: 0x09471f22B1033b8f9b1922Ee67313EFB7B5359E2
+```
+
+#### Consultar Balance
+```
+Donna, ¿cuál es el balance de tokens de la Casa 12?
+```
 
 ## Desarrollo
 
@@ -60,6 +84,9 @@ pnpm build
 # Tests
 pnpm test
 ```
+
+## Redes Soportadas
+- Arbitrum Sepolia (Testnet)
 
 ## Licencia
 

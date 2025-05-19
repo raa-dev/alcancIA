@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import info from "@/lib/info.json";
 import {
     Sidebar,
     SidebarContent,
@@ -37,8 +36,8 @@ export function AppSidebar() {
                         <SidebarMenuButton size="lg" asChild>
                             <NavLink to="/">
                                 <img
-                                    alt="elizaos-icon"
-                                    src="/elizaos-icon.png"
+                                    alt="donna-icon"
+                                    src="/donna.png"
                                     width="100%"
                                     height="100%"
                                     className="size-7"
@@ -46,9 +45,9 @@ export function AppSidebar() {
 
                                 <div className="flex flex-col gap-0.5 leading-none">
                                     <span className="font-semibold">
-                                        ElizaOS
+                                        Donna
                                     </span>
-                                    <span className="">v{info?.version}</span>
+                                    <span className="">v1.0.0</span>
                                 </div>
                             </NavLink>
                         </SidebarMenuButton>

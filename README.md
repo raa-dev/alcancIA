@@ -1,101 +1,55 @@
-# Administración de Condominio con ElizaOS
+# alcancIA
 
-<div align="center">
-  <img src="./docs/static/img/flujo_donna.png" alt="Flujo Banner" width="100%" />
-</div>
-
-Este repo integra automatización, blockchain y gestión documental para la administración avanzada de condominios, usando agentes inteligentes (como Donna) y plugins personalizados.
+Un agente de inteligencia artificial que simplifica el acceso al ahorro descentralizado. Los usuarios pueden crear billeteras Web3 invisibles, establecer metas de ahorro personalizadas y formar grupos de ahorro con amigos.
 
 ---
 
-## Plugins principales
+## Objetivo
 
-### 1. [`@plugin-token-manager`](./packages/plugin-token-manager)
-
-- **Propósito:** Gestiona wallets EVM, creación de actions para la interacción con contratos inteligentes.
-- **Funcionalidad:**
-  - Obtención de dirección y balance de la wallet del agente.
-  - Cambio dinámico de red (chain).
-  - Firma y envío de transacciones.
-  - Integración con el contrato [VotingTokenNucleo](https://github.com/robz323/VotingTokenNucleo) para la gestión de propuestas y votaciones.
-
-### 2. [`@plugin-obsidian`](./packages/plugin-obsidian)
-
-- **Propósito:** Permite a los agentes de ElizaOS interactuar con un vault de Obsidian para almacenar, consultar y organizar información relevante del condominio.
-- **Funcionalidad:**
-  - Registro y consulta de vecinos, proveedores, asambleas y finanzas.
-  - Acciones para agregar y listar vecinos (`ADD_VECINO`, `LIST_VECINOS`).
-  - Lectura, escritura y búsqueda avanzada de archivos Markdown.
-  - Integración con la API REST de Obsidian para operaciones automáticas desde el agente Donna.
+Facilitar el acceso al ahorro descentralizado mediante un agente inteligente. Los usuarios pueden:
+- Crear wallets Web3 invisibles (Account Abstraction)
+- Definir metas de ahorro personalizadas
+- Formar grupos de ahorro con amigos
+- Seguir el progreso y recibir incentivos por ahorrar
 
 ---
 
-## Contrato inteligente
+## Prerequisitos
 
-### [VotingTokenNucleo](https://github.com/robz323/VotingTokenNucleo)
-
-- **Propósito:** Proporciona la lógica de gobernanza y votación para el condominio.
-- **Funcionalidad:**
-  - Emisión y gestión de tokens de votación.
-  - Creación, consulta y ejecución de propuestas.
-  - Integración directa con el plugin `@plugin-token-manager` para automatizar flujos de votación desde Donna.
+- Node.js 23+ (se recomienda usar nvm)
+- pnpm 9+
+- Git para control de versiones
+- Un editor de código (VS Code, Cursor o VSCodium recomendado)
 
 ---
 
-## Ejemplo de flujo de trabajo con el agente Donna
+## Instalación y despliegue
 
-### 1. **Registro de vecinos**
-**Mensaje al agente:**
-```
-Donna, agrega un vecino nuevo: Casa 22, Nombre: Mariana Gómez, Dirección: 0x9876543210abcdef9876543210abcdef98765432, Estado: Activo
-```
-**Resultado:**  
-Donna registra el vecino en el archivo `Condominio/Vecinos/Registro de Vecinos.md` en Obsidian.
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/robz323/alcancIA
+   cd alcancIA
+   cp .env.example .env
+   pnpm install
+   pnpm build
+   ```
 
----
-
-### 2. **Consulta de vecinos**
-**Mensaje al agente:**
-```
-Donna, muestra la lista de vecinos
-```
-**Resultado:**  
-Donna responde con una tabla Markdown con todos los vecinos registrados.
+2. Inicia el personaje Don Jaimito:
+   ```bash
+   pnpm start --character="./characters/jaimito.character.json"
+   pnpm start:client
+   ```
 
 ---
 
-### 3. **Creación de propuesta de votación**
-**Mensaje al agente:**
-```
-Donna, crea una propuesta para cambiar el proveedor de limpieza.
-```
-**Resultado:**  
-Donna crea la propuesta en el contrato VotingTokenNucleo y la registra en Obsidian.
+## Descripción del proyecto
 
----
+alcancIA es un agente conversacional que ayuda a los usuarios a crear estrategias de ahorro, gestionar wallets en Starknet y participar en grupos de ahorro. El agente guía al usuario de forma empática y sencilla, integrando tecnologías de Account Abstraction y social login para una experiencia Web3 sin fricción.
 
-### 4. **Votación sobre una propuesta**
-**Mensaje al agente:**
-```
-Vota a favor de la propuesta 3.
-```
-**Resultado:**  
-Donna firma y envía la transacción de voto usando el plugin de token manager y actualiza el estado en Obsidian.
-
----
-
-## Instalación y configuración
-
-Sigue las instrucciones de cada plugin en sus respectivos README para la instalación y configuración de secrets (API keys, private keys, etc).
-
----
-
-## Acciones destacadas
-
-- `ADD_VECINO`: Agrega un vecino al registro en Obsidian.
-- `LIST_VECINOS`: Lista todos los vecinos registrados en formato tabla Markdown.
-- `SAVE_FILE`, `READ_FILE`, `SEARCH`, etc.: Operaciones generales sobre archivos en Obsidian.
-- Acciones de votación y gestión de propuestas integradas con el contrato VotingTokenNucleo.
+- **Wallet invisible:** Crea y gestiona wallets sin exponer llaves privadas.
+- **Metas de ahorro:** Define y sigue objetivos personalizados.
+- **Grupos de ahorro:** Crea grupos, establece metas colectivas y distribuye incentivos.
+- **Dashboard:** Visualiza el progreso y el historial de ahorro.
 
 ---
 
